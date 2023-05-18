@@ -151,7 +151,7 @@ def prep_domains_ucihar(args, SLIDING_WINDOW_LEN=0, SLIDING_WINDOW_STEP=0):
         transforms.ToTensor(),
         transforms.Normalize(mean=(0, 0, 0, 0, 0, 0, 0, 0, 0), std=(1, 1, 1, 1, 1, 1, 1, 1, 1))
     ])
-    print('source loader samples:', x.shape[0])
+    # print('source loader samples:', x.shape[0])
     data_set = data_loader_ucihar(x, y, d, transform)
     source_loader = DataLoader(data_set, batch_size=args.batch_size, shuffle=True, drop_last=True)
     # print('source_loader batch: ', len(source_loader))
@@ -162,7 +162,7 @@ def prep_domains_ucihar(args, SLIDING_WINDOW_LEN=0, SLIDING_WINDOW_STEP=0):
     x, y, d = load_domain_data(args.target_domain)
     x = np.transpose(x.reshape((-1, 1, 128, 9)), (0, 2, 1, 3)).astype(np.float32)
 
-    print('target loader samples:', x.shape[0])
+    # print('target loader samples:', x.shape[0])
     data_set = data_loader_ucihar(x, y, d, transform)
     target_loader = DataLoader(data_set, batch_size=args.batch_size, shuffle=False)
     # print('target_loader batch: ', len(target_loader))

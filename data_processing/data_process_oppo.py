@@ -285,7 +285,7 @@ def prep_domains_oppor(args, SLIDING_WINDOW_LEN=0, SLIDING_WINDOW_STEP=0):
     weights = weights.double()
     sample_weights = get_sample_weights(y_win, weights)
     sampler = torch.utils.data.sampler.WeightedRandomSampler(weights=sample_weights, num_samples=len(sample_weights), replacement=True)
-    print('source loader samples:', x_win.shape[0])
+    # print('source loader samples:', x_win.shape[0])
     data_set = data_loader_oppor(x_win, y_win, d_win)
     source_loader = DataLoader(data_set, batch_size=args.batch_size, shuffle=True, drop_last=True)
     # print('source_loader batch: ', len(source_loader))
@@ -297,7 +297,7 @@ def prep_domains_oppor(args, SLIDING_WINDOW_LEN=0, SLIDING_WINDOW_STEP=0):
     # x_win = x_win[2000:]
     # y_win = y_win[2000:]
     # d_win = d_win[2000:]
-    print('target loader samples:', x_win.shape[0])
+    # print('target loader samples:', x_win.shape[0])
     data_set = data_loader_oppor(x_win, y_win, d_win)
     target_loader = DataLoader(data_set, batch_size=args.batch_size, shuffle=False)
 

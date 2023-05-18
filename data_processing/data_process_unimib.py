@@ -99,7 +99,7 @@ def prep_domains_shar(args, SLIDING_WINDOW_LEN=0, SLIDING_WINDOW_STEP=0):
     weights = weights.double()
     sample_weights = get_sample_weights(y, weights)
     sampler = torch.utils.data.sampler.WeightedRandomSampler(weights=sample_weights, num_samples=len(sample_weights), replacement=True)
-    print('source loader samples:', x.shape[0])
+    # print('source loader samples:', x.shape[0])
     data_set = data_loader_shar(x, y, d)
     source_loader = DataLoader(data_set, batch_size=args.batch_size, shuffle=True, drop_last=True)
     # print('source_loader batch: ', len(source_loader))
@@ -110,7 +110,7 @@ def prep_domains_shar(args, SLIDING_WINDOW_LEN=0, SLIDING_WINDOW_STEP=0):
 
     x, y, d = load_domain_data(args.target_domain)
     x = x.reshape(-1, 151, 3)
-    print('target loader samples:', x.shape[0])
+    # print('target loader samples:', x.shape[0])
     data_set = data_loader_shar(x, y, d)
     target_loader = DataLoader(data_set, batch_size=args.batch_size, shuffle=False)
     # print('target_loader batch: ', len(target_loader))
