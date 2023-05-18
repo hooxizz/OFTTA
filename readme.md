@@ -1,4 +1,4 @@
-## Code demo for reproduction OFTTA
+## Demo for OFTTA reproduction 
 
 #### Installation:
 Please create and activate the following conda envrionment.
